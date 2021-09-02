@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #tutorial {
+        background: #fff;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-top: 10px;
+        -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tutorial" width="500" height="500"></canvas>
+    <script>
+      var canvas = document.getElementById("tutorial");
+      const ctx = canvas.getContext('2d')
+
+      const gridSize = 10
+      const width = ctx.canvas.width
+      const height = ctx.canvas.height
+
+      const xLineNum = Math.floor(height / gridSize)
+      const yLineNum = Math.floor(width / gridSize)
+
+      // 画横线
+      for (let i = 0; i < xLineNum; i++) {
+        ctx.beginPath()
+        ctx.moveTo(0, gridSize * i - 0.5)
+        ctx.lineTo(width, gridSize * i - 0.5)
+        ctx.strokeStyle = '#ccc'
+        ctx.closePath()
+        ctx.stroke()
+      }
+      // 画竖线
+      for (let i = 0; i < yLineNum; i++) {
+        ctx.beginPath()
+        ctx.moveTo(gridSize * i - 0.5, 0)
+        ctx.lineTo(gridSize * i - 0.5, height)
+        ctx.strokeStyle = '#ccc'
+        ctx.closePath()
+        ctx.stroke()
+      }
+    </script>
+  </body>
+</html>

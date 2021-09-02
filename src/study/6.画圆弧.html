@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #tutorial {
+        background: #fff;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-top: 10px;
+        -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tutorial" width="500" height="500"></canvas>
+    <script>
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 3; j++) {
+            ctx.beginPath();
+            var x = 25 + j * 50; // x 坐标值
+            var y = 25 + i * 50; // y 坐标值
+            var radius = 20; // 圆弧半径
+            var startAngle = 0; // 开始点
+            var endAngle = Math.PI + (Math.PI * j) / 2; // 结束点
+            var anticlockwise = i % 2 == 0 ? false : true; // 顺时针或逆时针
+
+            ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+
+            if (i > 1) {
+              ctx.fill();
+            } else {
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      let context = canvas.getContext('2d');
+ 
+        function drawGrid(stepX, stepY, color, lineWidth){
+            // 创建垂直格网线路径
+            for(let i = 0.5 + stepX; i < canvas.width; i += stepX){
+                context.moveTo(i, 0);
+                context.lineTo(i, canvas.height);
+            }
+            // 创建水平格网线路径
+            for(let j = 0.5 + stepY; j < canvas.height; j += stepY){
+                context.moveTo(0, j);
+                context.lineTo(canvas.width, j);
+            }
+ 
+            // 设置绘制颜色
+            context.strokeStyle = color;
+            // 设置绘制线段的宽度
+            context.lineWidth = lineWidth;
+            // 绘制格网
+            context.stroke();
+            // 清除路径
+            context.beginPath();
+        }
+        drawGrid(10, 10, 'lightgray', 0.5);
+    </script>
+  </body>
+</html>

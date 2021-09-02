@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="tutorial" width="150" height="150"></canvas>
+    <script>
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath()
+        ctx.moveTo(0, 0)
+        ctx.lineTo(100, 0)
+        ctx.lineTo(0, 100)
+        ctx.closePath()
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.moveTo(100, 0)
+        ctx.lineTo(300, 0)
+        ctx.lineTo(200, 100)
+        ctx.closePath()
+        ctx.fill()
+      }
+    </script>
+  </body>
+</html>
