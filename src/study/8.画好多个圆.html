@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <canvas id="tutorial" width="500" height="500"></canvas>
+    <canvas id="tutorial" width="1000" height="1000"></canvas>
     <script>
       var canvas = document.getElementById("tutorial");
       const drawGrid = () => {
@@ -50,7 +50,30 @@
         }
       };
 
-      drawGrid()
+      drawGrid();
+
+      const drawArc = () => {
+        const ctx = canvas.getContext("2d");
+
+        for (var i = 0; i < 10; i++) {
+          for (var j = 0; j < 10; j++) {
+            ctx.strokeStyle =
+              "rgb(0," +
+              Math.floor(255 - 42.5 * i) +
+              "," +
+              Math.floor(255 - 42.5 * j) +
+              ")";
+            // ctx.fillStyle = 'rgba(255,0,0,0.5)'  
+            ctx.beginPath();
+            ctx.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+            ctx.closePath()
+            // ctx.fill();
+            ctx.stroke()
+          }
+        }
+      };
+
+      drawArc()
 
       console.log("111");
     </script>

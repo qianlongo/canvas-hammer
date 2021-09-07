@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas width="600" height="400" id="canvas"></canvas>
+    <script type="text/javascript">
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+
+      context.beginPath();
+      context.fillStyle = "rgba(0,0,0,.2)";
+      context.moveTo(100, 50);
+      context.lineTo(150, 50);
+      context.lineTo(121, 56);
+      context.fill();
+      context.closePath();
+
+      context.beginPath();
+      context.fillStyle = "rgba(0,0,0,.2)";
+      context.moveTo(100, 150);
+      context.lineTo(150, 150);
+      context.lineTo(121, 144);
+      context.fill();
+      context.closePath();
+      context.beginPath();
+
+      context.fillStyle = "#eee";
+      context.arc(150, 100, 50, 0, 2 * Math.PI);
+      context.fill();
+      context.strokeStyle = "#333";
+      context.arc(100, 100, 50, 0, 2 * Math.PI);
+      context.stroke();
+
+      context.fillStyle = "rgba(0,0,0,.2)";
+      context.arc(150, 100, 50, 0, 2 * Math.PI);
+      context.fill();
+      context.beginPath();
+
+      context.strokeStyle = "#999";
+      context.moveTo(50, 100);
+      context.lineTo(100, 100);
+      context.stroke();
+      context.beginPath();
+      context.strokeStyle = "#333";
+      context.moveTo(100, 50);
+      context.lineTo(150, 50);
+      context.stroke();
+      context.moveTo(100, 150);
+      context.lineTo(150, 150);
+      context.stroke();
+    </script>
+  </body>
+</html>

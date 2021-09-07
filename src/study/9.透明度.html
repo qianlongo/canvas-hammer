@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    <canvas id="tutorial" width="500" height="500"></canvas>
+    <canvas id="tutorial" width="1000" height="1000"></canvas>
     <script>
       var canvas = document.getElementById("tutorial");
       const drawGrid = () => {
@@ -50,7 +50,35 @@
         }
       };
 
-      drawGrid()
+      drawGrid();
+
+      const drawGlobalAlpha = () => {
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#fd0";
+        ctx.fillRect(0, 0, 75, 75);
+
+        ctx.fillStyle = "#6c0";
+        ctx.fillRect(75, 0, 75, 75);
+
+        ctx.fillStyle = "#09f";
+        ctx.fillRect(0, 75, 75, 75);
+
+        ctx.fillStyle = "#f30";
+        ctx.fillRect(75, 75, 75, 75);
+
+        ctx.fillStyle = "#fff";
+
+        ctx.globalAlpha = 0.2;
+
+        for (var i = 0; i < 7; i++) {
+          ctx.beginPath();
+          ctx.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+          ctx.fill();
+        }
+      };
+
+      drawGlobalAlpha();
 
       console.log("111");
     </script>
